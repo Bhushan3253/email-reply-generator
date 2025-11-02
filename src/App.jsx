@@ -15,7 +15,7 @@ import axois from 'axios';
 import './App.css';
 
 function App() {
-  const API_BASE_URL = 'https://email-reply-generator-backend-sb.onrender.com';
+
   const [emailContent, setEmailContent] = useState('');
   const [tone, setTone] = useState('');
   const [generatedReply, setGeneratedReply] = useState('');
@@ -29,7 +29,7 @@ function App() {
     
 
     try {
-      const response=await axois.post('${API_BASE_URL}/api/email/generate', { emailContent, tone });
+      const response=await axois.post('https://email-reply-generator-backend-sb.onrender.com/api/email/generate', { emailContent, tone });
       setGeneratedReply(typeof response.data === 'string' ? response.data : JSON.stringify(response.data));
     } catch (error) {
       setError('Failed to generate reply. Please try again.');
